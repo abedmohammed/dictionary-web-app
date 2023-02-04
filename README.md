@@ -1,1 +1,1 @@
-# Mohammed's Dictionary web app
+# Mohammed's Dictionary Web App

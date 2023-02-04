@@ -1,16 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <!-- FAVICON -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <link rel="stylesheet" href="css/main.css" />
-  
-  <title>Mohammed's Dictionary</title>
-</head>
-<body>
-  test
-</body>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <title>Mohammed's Dictionary</title>
+
+    <!-- JAVASCRIPT -->
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">header</header>
+      <div class="search">
+        <form novalidate>
+          <input
+            type="text"
+            class="search__field"
+            aria-label="Word search text bar"
+            aria-describedby="search-error"
+            placeholder="Search for any word..."
+            autocomplete="off"
+            id="search-bar"
+          />
+          <button type="submit" class="search__submit">
+            <img src="./assets/images/icon-search.svg" class="search__icon" />
+          </button>
+          <p id="search-error" class="search__error" aria-live="assertive">
+            Whoops, can't be empty...
+          </p>
+        </form>
+      </div>
+      <main class="definition">definition</main>
+    </div>
+  </body>
 </html>
