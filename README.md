@@ -1,2 +1,1 @@
-# dictionarywebapp
-Dictionary application
+# Mohammed's Dictionary web app
