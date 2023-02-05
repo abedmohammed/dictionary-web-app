@@ -1,6 +1,6 @@
 import { API_URL } from "./config.js";
 
-const definition = {
+export const definition = {
   word: "",
   phonetic: {
     text: "",
@@ -17,10 +17,14 @@ export const getDefinition = async function (query) {
   // Get word
   definition.word = defResponse.word;
 
-  // Get phonetics
+  // set phonetics to empty
+  definition.phonetic.text = "";
+  definition.phonetic.audioURL = "";
+
+  // Cycle through all the phonetic sources to get any value
   defResponse.phonetics.forEach((el) => {
-    if (el.text) definition.phonetic.text = el.text;
-    if (el.audio) definition.phonetic.audioURL = el.audio;
+    definition.phonetic.text = el.text || "";
+    definition.phonetic.audioURL = el.audio || "";
   });
 
   // Get meanings

@@ -1,6 +1,7 @@
-import { getDefinition } from "./model.js";
+import * as model from "./model.js";
 import * as searchView from "./searchView.js";
 import * as definitionView from "./definitionView.js";
+import * as audioView from "./audioView.js";
 
 const controlSearch = function () {
   // Get the query from the search bar
@@ -25,14 +26,19 @@ const controlHashChange = async function () {
   searchView.updateSearch(query);
 
   // Get the definition from the API request in the model
-  const definition = await getDefinition(query);
+  const definition = await model.getDefinition(query);
 
   // Render the definition
   definitionView.renderDefinition(definition);
 };
 
+const controlAudio = function () {
+  new Audio(model.definition.phonetic.audioURL).play();
+};
+
 const init = function () {
   searchView.addHandlerSearch(controlSearch);
   searchView.addHandlerHashChange(controlHashChange);
+  audioView.addHandlerPlayBtn(controlAudio);
 };
 init();

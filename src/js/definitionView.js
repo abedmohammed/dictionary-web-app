@@ -74,12 +74,15 @@ const generateDefinitionMarkup = function (definition) {
       <h1 class="heading__primary">${definition.word}</h1>
       <p class="term__phonetic">${definition.phonetic.text}</p>
     </div>
-    <button class="term__audio-btn">
-      <img
-        src="./assets/images/icon-play.svg"
-        alt="Audio playback button"
-      />
-    </button>
+    ${
+      definition.phonetic.audioURL
+        ? `
+        <button id="audio-btn" class="term__audio-btn">
+          <img src="./assets/images/icon-play.svg" alt="Audio playback button" />
+        </button>`
+        : ""
+    }
+
   </div>
 
   ${generateMeanings(definition.meanings).join("")}
