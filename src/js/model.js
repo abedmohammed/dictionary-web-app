@@ -9,26 +9,42 @@ export const definition = {
   meanings: [],
 };
 
+export let error = {};
+
 export const getDefinition = async function (query) {
-  let defResponse = await fetch(`${API_URL}${query}`);
-  defResponse = await defResponse.json();
-  defResponse = defResponse[0];
+  try {
+    // GET request for definition
+    let defResponse = await fetch(`${API_URL}${query}`);
 
-  // Get word
-  definition.word = defResponse.word;
+    // Extract object from json
+    defResponse = await defResponse.json();
 
-  // set phonetics to empty
-  definition.phonetic.text = "";
-  definition.phonetic.audioURL = "";
+    // Array = success, Object = failure message
+    if (!Array.isArray(defResponse)) {
+      // Handle error and return error message
+      error = defResponse;
+      throw new Error(defResponse.title);
+    }
 
-  // Cycle through all the phonetic sources to get any value
-  defResponse.phonetics.forEach((el) => {
-    definition.phonetic.text = el.text || "";
-    definition.phonetic.audioURL = el.audio || "";
-  });
+    defResponse = defResponse[0];
 
-  // Get meanings
-  definition.meanings = defResponse.meanings;
+    // Get word
+    definition.word = defResponse.word;
 
-  return definition;
+    // set phonetics to empty
+    definition.phonetic.text = "";
+    definition.phonetic.audioURL = "";
+
+    // Cycle through all the phonetic sources to get any value
+    defResponse.phonetics.forEach((el) => {
+      definition.phonetic.text = el.text || "";
+      definition.phonetic.audioURL = el.audio || "";
+    });
+
+    // Get meanings
+    definition.meanings = defResponse.meanings;
+  } catch (err) {
+    console.error(`ERROR IN MODEL 💥: ${err}`);
+    throw err;
+  }
 };

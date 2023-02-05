@@ -12,24 +12,29 @@ const controlSearch = function () {
 };
 
 const controlHashChange = async function () {
-  // Get query for URL Hash
-  const query = window.location.hash.slice(1);
+  try {
+    // Get query for URL Hash
+    const query = decodeURI(window.location.hash.slice(1));
 
-  // If the query is empty, clear the definition view and the text input
-  if (query === "") {
-    definitionView.clearContainer();
-    searchView.updateSearch("");
-    return;
+    // If the query is empty, clear the definition view and the text input
+    if (query === "") {
+      definitionView.clearContainer();
+      searchView.updateSearch("");
+      return;
+    }
+
+    // Update search input to show the query in the hash
+    searchView.updateSearch(query);
+
+    // Get the definition from the API request in the model
+    await model.getDefinition(query);
+
+    // Render the definition
+    definitionView.renderDefinition(model.definition);
+  } catch (err) {
+    definitionView.renderError(model.error);
+    console.error(`ERROR IN CONTROLLER 💥: ${err}`);
   }
-
-  // Update search input to show the query in the hash
-  searchView.updateSearch(query);
-
-  // Get the definition from the API request in the model
-  const definition = await model.getDefinition(query);
-
-  // Render the definition
-  definitionView.renderDefinition(definition);
 };
 
 const controlAudio = function () {

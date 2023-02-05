@@ -116,4 +116,16 @@ const renderDefinition = function (definition) {
   definitionContainer.insertAdjacentHTML("afterbegin", markup);
 };
 
-export { renderDefinition, clearContainer };
+const renderError = function (error) {
+  const html = `
+  <div class="error">
+    <p class="error__emoji">&#128533</p>
+    <h1 class="error__heading">${error.title}</h1>
+    <p class="error__text">${error.message} ${error.resolution}</p>
+  </div>`;
+
+  clearContainer();
+  definitionContainer.insertAdjacentHTML("afterbegin", html);
+};
+
+export { renderDefinition, clearContainer, renderError };

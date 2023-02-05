@@ -6,7 +6,7 @@ const getQuery = function () {
 
   if (query === "") {
     searchField.classList.add("search__field--empty");
-    return;
+    return "";
   }
   searchField.classList.remove("search__field--empty");
 
