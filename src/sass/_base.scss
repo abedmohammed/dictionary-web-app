@@ -22,6 +22,8 @@
   --font-sans: "Inter", sans-serif;
   --font-serif: "Lora", serif;
   --font-mono: "Inconsolata", monospace;
+
+  --padding-mobile: 2rem;
 }
 
 *,
@@ -35,6 +37,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  @media only screen and (max-width: 48em) {
+    font-size: 50%;
+  }
 }
 
 img,
@@ -54,8 +60,10 @@ body {
 
 .container {
   margin: 5.8rem auto 10rem auto;
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
 
-  max-width: 75rem;
+  max-width: calc(75rem + var(--padding-mobile) * 2);
   min-height: calc(100vh - 5.8rem - 10rem);
   min-height: calc(100dvh - 5.8rem - 10rem);
 }
