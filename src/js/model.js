@@ -14,8 +14,6 @@ export const getDefinition = async function (query) {
   defResponse = await defResponse.json();
   defResponse = defResponse[0];
 
-  console.log(defResponse);
-
   // Get word
   definition.word = defResponse.word;
 

@@ -13,6 +13,10 @@ const getQuery = function () {
   return query;
 };
 
+const updateSearch = function (query) {
+  searchField.value = query;
+};
+
 const addHandlerSearch = function (handler) {
   searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -20,4 +24,13 @@ const addHandlerSearch = function (handler) {
   });
 };
 
-export { getQuery, addHandlerSearch };
+const addHandlerHashChange = function (handler) {
+  window.addEventListener("hashchange", function () {
+    handler();
+  });
+  window.addEventListener("load", function () {
+    handler();
+  });
+};
+
+export { getQuery, addHandlerSearch, addHandlerHashChange, updateSearch };

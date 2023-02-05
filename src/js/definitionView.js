@@ -9,12 +9,12 @@ const generateMeanings = function (meanings) {
           <li>
             <p class="meaning__point">
               ${def.definition}
-              ${
-                def.example
-                  ? `<q class="meaning__example">${def.example}</q>`
-                  : ""
-              }
             </p>
+            ${
+              def.example
+                ? `<q class="meaning__example">${def.example}</q>`
+                : ""
+            }
           </li>
         `;
       });
@@ -27,7 +27,7 @@ const generateMeanings = function (meanings) {
       let html = `<div class="meaning__nyms">
       <h3 class="heading__tertiary">Synonyms</h3>`;
       synonyms.forEach((synonym) => {
-        html += `<a class="meaning__link" href="#">${synonym}</a>`;
+        html += `<a class="meaning__link" href="#${synonym}">${synonym}</a>`;
       });
 
       html += `</div>`;
@@ -40,7 +40,7 @@ const generateMeanings = function (meanings) {
       let html = `<div class="meaning__nyms">
       <h3 class="heading__tertiary">Antonyms</h3>`;
       antonyms.forEach((antonym) => {
-        html += `<a class="meaning__link" href="#">${antonym}</a>`;
+        html += `<a class="meaning__link" href="#${antonym}">${antonym}</a>`;
       });
 
       html += `</div>`;
@@ -113,4 +113,4 @@ const renderDefinition = function (definition) {
   definitionContainer.insertAdjacentHTML("afterbegin", markup);
 };
 
-export { renderDefinition };
+export { renderDefinition, clearContainer };
