@@ -1,0 +1,41 @@
+.heading__primary {
+  font-size: 6.4rem;
+  font-weight: 700;
+  color: var(--color-dark-gray-2);
+}
+
+.heading__secondary {
+  font-size: 2.4rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-dark-gray-2);
+
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 5.4rem;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: var(--color-light-gray-2);
+    width: 100%;
+    margin-left: 2rem;
+  }
+}
+
+.heading__tertiary {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-light-gray-3);
+
+  margin-bottom: 2.5rem;
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+  color: var(--color-dark-gray-2);
+}
