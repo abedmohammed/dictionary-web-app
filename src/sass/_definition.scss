@@ -25,6 +25,7 @@
     list-style: none;
     margin-left: 5.2rem;
     margin-bottom: 6.4rem;
+    margin-top: 2.5rem;
 
     li:not(:last-child) {
       margin-bottom: 1.3rem;
@@ -50,8 +51,11 @@
 
   &__nyms {
     display: flex;
-    gap: 2.2rem;
-    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 2.2rem;
+    row-gap: 1.4rem;
+    margin-bottom: 4rem;
   }
 
   &__link {
