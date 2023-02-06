@@ -1,9 +1,92 @@
 .header {
-  background-color: green;
-
-  // ! REMOVE AFTER
-  height: 3.6rem;
-  display: none;
-
   margin-bottom: 5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__options {
+    display: flex;
+    align-items: center;
+  }
+
+  &__font-btn {
+    cursor: pointer;
+    padding: 1rem;
+    margin-right: 0.6rem;
+
+    background-color: transparent;
+    border: none;
+
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+  }
+
+  &__font {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-dark-gray-2);
+  }
+
+  &__divider {
+    width: 1px;
+    height: 3.2rem;
+    background-color: var(--color-light-gray-2);
+  }
+
+  &__theme {
+    padding: 1rem;
+    margin-left: 0.6rem;
+
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+  }
+
+  &__toggle {
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: var(--color-light-gray-3);
+    transition: all 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      height: 1.4rem;
+      width: 1.4rem;
+      background-color: var(--color-white);
+      transition: all 0.3s;
+    }
+
+    &:checked {
+      background-color: var(--color-highlight);
+    }
+
+    &:checked::after {
+      left: 75%;
+    }
+  }
+
+  &__toggle:checked + &__nightmode-icon {
+    stroke: var(--color-highlight);
+  }
+
+  &__nightmode-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.3s;
+
+    fill: none;
+    stroke: var(--color-light-gray-3);
+  }
 }
