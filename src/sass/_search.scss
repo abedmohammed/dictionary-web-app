@@ -8,14 +8,17 @@
 
     width: 100%;
     padding: 2rem 6.4rem 2rem 2.4rem;
+    color: inherit;
 
     border: none;
     border-radius: 16px;
 
     background-color: var(--color-light-gray-1);
+    transition: all 0.5s;
 
     &::placeholder {
-      color: var(--color-dark-gray-2);
+      // color: var(--color-dark-gray-2);
+      color: inherit;
       opacity: 0.25;
     }
 

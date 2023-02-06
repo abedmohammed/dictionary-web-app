@@ -2,6 +2,8 @@ import * as model from "./model.js";
 import * as searchView from "./searchView.js";
 import * as definitionView from "./definitionView.js";
 import * as audioView from "./audioView.js";
+import * as themeView from "./themeView.js";
+import * as fontView from "./fontView.js";
 
 const controlSearch = function () {
   // Get the query from the search bar
@@ -45,5 +47,7 @@ const init = function () {
   searchView.addHandlerSearch(controlSearch);
   searchView.addHandlerHashChange(controlHashChange);
   audioView.addHandlerPlayBtn(controlAudio);
+  themeView.addHandlerToggleTheme();
+  fontView.addHandlerFontChange();
 };
 init();

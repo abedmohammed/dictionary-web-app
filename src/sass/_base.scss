@@ -56,6 +56,10 @@ input {
 body {
   font-family: var(--font-sans);
   font-size: 1.6rem;
+  color: var(--color-dark-gray-2);
+  background-color: var(--color-white);
+
+  transition: all 0.3s;
 }
 
 .container {
