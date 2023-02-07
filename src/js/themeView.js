@@ -42,6 +42,9 @@ const changeThemeToLight = function () {
 
   searchBar.style.backgroundColor = "var(--color-light-gray-1)";
 
+  dropdownMenu.style.backgroundColor = "var(--color-white)";
+  dropdownMenu.style.boxShadow = "0px 5px 30px rgba(0, 0, 0, 0.1)";
+
   localStorage.setItem("md-theme", "light");
 };
 

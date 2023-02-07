@@ -142,6 +142,10 @@
     &--mono {
       font-family: "Inconsolata", monospace;
     }
+
+    &:hover {
+      color: var(--color-highlight);
+    }
   }
 
   &--active {
