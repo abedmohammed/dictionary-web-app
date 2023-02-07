@@ -37,13 +37,15 @@
           class="header__logo"
         />
         <div class="header__options">
-          <button class="header__font-btn" id="font-btn">
-            <p class="header__font">Sans-serif</p>
-            <img
-              src="./assets/images/icon-arrow-down.svg"
-              alt="Open font options list"
-              class="header__chevron"
-            />
+          <div class="header__font-dropdown">
+            <button class="header__font-btn" id="font-btn">
+              <p class="header__font">Sans-serif</p>
+              <img
+                src="./assets/images/icon-arrow-down.svg"
+                alt="Open font options list"
+                class="header__chevron"
+              />
+            </button>
             <ul class="dropdown">
               <li
                 data-font-style="'Inter', sans-serif"
@@ -64,7 +66,8 @@
                 Mono
               </li>
             </ul>
-          </button>
+          </div>
+
           <div class="header__divider"></div>
           <div class="header__theme">
             <input type="checkbox" class="header__toggle" id="theme-toggle" />

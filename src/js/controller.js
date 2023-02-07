@@ -43,11 +43,41 @@ const controlAudio = function () {
   new Audio(model.definition.phonetic.audioURL).play();
 };
 
+const controlChangeTheme = function () {
+  if (themeView.isToggleChecked()) {
+    themeView.changeThemeToDark();
+    return;
+  }
+  themeView.changeThemeToLight();
+};
+
+const controlSetTheme = function () {
+  // Check local storage
+  const localStorageTheme = localStorage.getItem("md-theme");
+
+  if (localStorageTheme !== null && localStorageTheme === "dark") {
+    themeView.changeThemeToDark();
+    return;
+  }
+
+  if (localStorageTheme !== null && localStorageTheme === "light") {
+    themeView.changeThemeToLight();
+    return;
+  }
+
+  // Get system theme
+  const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+  darkThemeMq.matches
+    ? themeView.changeThemeToDark()
+    : themeView.changeThemeToLight();
+};
+
 const init = function () {
   searchView.addHandlerSearch(controlSearch);
   searchView.addHandlerHashChange(controlHashChange);
   audioView.addHandlerPlayBtn(controlAudio);
-  themeView.addHandlerToggleTheme();
+  themeView.addHandlerToggleTheme(controlChangeTheme);
+  themeView.addHandlerSetTheme(controlSetTheme);
   fontView.addHandlerFontChange();
 };
 init();
